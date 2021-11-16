@@ -7,7 +7,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class NetworkPlayer : MonoBehaviour
 {
-    public List<GameObject> emojies = new List<GameObject>();
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
@@ -58,25 +57,6 @@ public class NetworkPlayer : MonoBehaviour
     {
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
-    }
-
-    [PunRPC]
-    void RecreateAvatar(string emoji, PhotonMessageInfo info)
-    {
-        Debug.Log(info.photonView.ViewID);
-        int viewId = info.photonView.ViewID;
-
-        foreach (var item in FindObjectsOfType<PhotonView>())
-        {
-            if (item.ViewID == viewId)
-            {
-                GameObject spawnedPlayerPrefab = item.gameObject;
-                // Destroy old emoji and Respawn emoji based on the player status
-                GameObject playerEmoji = Instantiate(emojies.Find(e => e.name == emoji), spawnedPlayerPrefab.transform.Find("Head").Find("Emoji"));
-                playerEmoji.transform.SetParent(spawnedPlayerPrefab.transform.Find("Head").Find("Emoji"));
-                break;
-            }
-        }
     }
 
     void UpdateHandAnimation(InputDevice targetDevice, Animator handAnimator)
