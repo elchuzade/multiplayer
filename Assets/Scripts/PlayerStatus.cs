@@ -29,7 +29,7 @@ public class PlayerStatus : MonoBehaviour
         {
             if (item.ViewID == viewId)
             {
-                Debug.Log("found user:" + viewId);
+                Debug.Log("found user: " + viewId);
                 GameObject spawnedPlayerPrefab = item.gameObject;
                 // Destroy old emoji and Respawn emoji based on the player status
                 GameObject playerEmoji = Instantiate(emojies.Find(e => e.name == emoji), spawnedPlayerPrefab.transform.Find("Head").Find("Emoji"));
