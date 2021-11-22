@@ -2062,6 +2062,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6926256201939422866, guid: 5203c4a0a99b983448169d56a4dfd8ff, type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6926256201939422867, guid: 5203c4a0a99b983448169d56a4dfd8ff, type: 3}
       propertyPath: m_Name
       value: XR Rig

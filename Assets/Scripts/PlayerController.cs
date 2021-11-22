@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                             GameObject avatar = Instantiate(ava, player.transform.Find("Head").Find("Face").position, player.transform.Find("Head").Find("Face").rotation);
                             avatar.transform.SetParent(player.transform.Find("Head").Find("Face"));
 
+                            // Hide my emoji
                             if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
                             {
                                 gameObject.transform.SetParent(gameRoomStatus.faceCamera.transform);
