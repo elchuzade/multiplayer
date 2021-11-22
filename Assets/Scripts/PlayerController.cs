@@ -83,7 +83,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
                             if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
                             {
                                 gameObject.transform.SetParent(gameRoomStatus.faceCamera.transform);
-                                avatar.SetActive(false);
+                                //avatar.SetActive(false);
+                                foreach (var item in GetComponentsInChildren<MeshRenderer>())
+                                {
+                                    Debug.Log("hiding stuff");
+                                    item.enabled = false;
+                                }
                             }
                         }
                     }
