@@ -70,23 +70,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
                         player.GetComponent<PlayerController>().mood = (string)hash["mood"];
                         player.GetComponent<PlayerController>().viewId = (int)hash["viewId"];
                         // Remove previous avatars if any exist
-                        //for (int i = 0; i < player.transform.Find("Head").Find("Face").childCount; i++)
-                        //{
-                           // Destroy(player.transform.Find("Head").Find("Face").GetChild(i).gameObject);
-                        //}
                         if (player.transform.Find("Head").Find("Face").childCount == 0)
                         {
                             GameObject avatar = Instantiate(ava, player.transform.Find("Head").Find("Face").position, player.transform.Find("Head").Find("Face").rotation);
-                            avatar.transform.SetParent(player.transform.Find("Head").Find("Face"));
+                            //avatar.transform.SetParent(player.transform.Find("Head").Find("Face"));
+                            avatar.transform.SetParent(player.transform.Find("LeftHand"));
 
                             // Hide my emoji
                             if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
                             {
-                                gameObject.transform.SetParent(gameRoomStatus.faceCamera.transform);
-                                //avatar.SetActive(false);
+                                transform.SetParent(gameRoomStatus.faceCamera.transform);
+                                // Hide renderer
                                 foreach (var item in GetComponentsInChildren<MeshRenderer>())
                                 {
-                                    Debug.Log("hiding stuff");
                                     item.enabled = false;
                                 }
                             }
