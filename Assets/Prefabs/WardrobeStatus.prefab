@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2143029323552189487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143029323552189484}
+  - component: {fileID: 2143029323552189485}
+  m_Layer: 0
+  m_Name: WardrobeStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143029323552189484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143029323552189487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2143029323552189485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2143029323552189487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a727a45f22f4e65a1f2176ecca5ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allEmojies:
+  - {fileID: 3244378820695692772, guid: dc522ccba16194ca58bf856a0689041c, type: 3}
+  - {fileID: 2888542734398131372, guid: 14f4608d28a56411e8fc98dfb21c69cb, type: 3}
+  - {fileID: 8766282675440791922, guid: d7aafe1e2f63741fe86f7750d9aa66e0, type: 3}
+  - {fileID: 1171510559566914510, guid: 819b28a9d5d4444a5bed20fa10f7acfa, type: 3}
+  - {fileID: 6431457928909673640, guid: c01bd7e203a3b40ab9cb54877dd0c29e, type: 3}
+  - {fileID: 2325263855442044301, guid: 49e3386fac8c84694b69388c4e1e42b0, type: 3}
+  - {fileID: 8178184535218467176, guid: 0950bf41c8c12463ebac9a1b930bf14a, type: 3}
+  - {fileID: 6853969907301555549, guid: 7c51811e1bc74451889e0b9729711570, type: 3}
+  - {fileID: 4498387681610237990, guid: 5e4ed0455d9ef42f8b976ff6e4ff615d, type: 3}
+  - {fileID: 2018479833273867893, guid: 4acbdd0ac684b4bfb8089e69fd688e92, type: 3}
+  - {fileID: 1176377360722680969, guid: 0fd0e33c2d3f34692821ecfa10a6b157, type: 3}
+  - {fileID: 7425242041366849519, guid: 3f93b15fdcb014d4e9e8c5b7a23a6947, type: 3}
+  - {fileID: 1623547899514660443, guid: 5a73bbcbf2ea34cf6850b64deddd14aa, type: 3}
+  - {fileID: 1131618529846654164, guid: 50f701fb8144e47c2830d3d58054787a, type: 3}
+  - {fileID: 7101166428753451666, guid: bab169d176dfc4612811094211746809, type: 3}
+  - {fileID: 2030879820891355050, guid: ce731e0f906d84941aaab8a20c24abb0, type: 3}
+  - {fileID: 2865712539790063256, guid: 46c782d335fa843409dc0e3f0c9d49ad, type: 3}
+  - {fileID: 95444548574150825, guid: 3819b10a5fa0a4b71a1dacf6fa99ead1, type: 3}
+  scrollUpButton: {fileID: 0}
+  scrollDownButton: {fileID: 0}
+  scrollLeftButton: {fileID: 0}
+  scrollRightButton: {fileID: 0}
+  scrollMenu: {fileID: 0}
+  scrollMenuFace: {fileID: 0}
+  scrollMenuHead: {fileID: 0}
+  scrollMenuEyes: {fileID: 0}
+  scrollMenuMouth: {fileID: 0}
+  scrollMenuWrist: {fileID: 0}

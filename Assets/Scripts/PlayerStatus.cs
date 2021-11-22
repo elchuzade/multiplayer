@@ -1,46 +1,48 @@
-using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
-using Photon.Pun;
-using Photon.Pun;
 
 public class PlayerStatus : MonoBehaviour
 {
-    public List<GameObject> emojies = new List<GameObject>();
-    private string emoji = "disappointed-face";
-    // "disappointed-face"
+    public string face = "SlightlySmilingFace";
+    public List<string> unlockedFaces = new List<string>() { "SlightlySmilingFace", "AngryFace", "PensiveFace", "RelievedFace" };
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        PhotonView photonView = PhotonView.Get(this);
-        // string playerStatusEmoji = gameObject.GetComponent<PlayerStatus>().GetEmoji();
-        //PlayerPrefs.SetString("emoji", "disappointed-face");
-        //string playerStatusEmoji = PlayerPrefs.GetString("emoji");
-        string playerStatusEmoji = emoji;
-        photonView.RPC("RecreateAvatar", RpcTarget.All, playerStatusEmoji, photonView.ViewID);
-    }
-
-    [PunRPC]
-    void RecreateAvatar(string emoji, int viewId)
-    {
-        Debug.Log(viewId);
-        foreach (var item in FindObjectsOfType<PhotonView>())
+        // Singleton
+        int instances = FindObjectsOfType<PlayerStatus>().Length;
+        if (instances > 1)
         {
-            if (item.ViewID == viewId)
-            {
-                Debug.Log("found user: " + viewId);
-                GameObject spawnedPlayerPrefab = item.gameObject;
-                // Destroy old emoji and Respawn emoji based on the player status
-                GameObject playerEmoji = Instantiate(emojies.Find(e => e.name == emoji), spawnedPlayerPrefab.transform.Find("Head").Find("Emoji"));
-                playerEmoji.transform.SetParent(spawnedPlayerPrefab.transform.Find("Head").Find("Emoji"));
-                break;
-            }
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
         }
     }
 
-    public string GetEmoji()
+    public void SavePlayer()
     {
-        return emoji;
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void ResetPlayer()
+    {
+        face = "SlightlySmilingFace";
+        unlockedFaces = new List<string>() { "SlightlySmilingFace", "AngryFace", "PensiveFace", "RelievedFace"};
+
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data == null)
+        {
+            ResetPlayer();
+            data = SaveSystem.LoadPlayer();
+        }
+
+        face = data.face;
+        unlockedFaces = data.unlockedFaces;
     }
 }

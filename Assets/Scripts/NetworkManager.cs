@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    void Start()
+/*    void Start()
     {
         ConnectToServer();
     }
@@ -28,15 +28,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom("Room 1", roomOptions, TypedLobby.Default);
     }
 
-    public override void OnJoinedRoom()
-    {
-        Debug.Log("Joined a Room");
-        base.OnJoinedRoom();
-    }
-
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("A new player joined the room");
         base.OnPlayerEnteredRoom(newPlayer);
-    }
+    }*/
 }

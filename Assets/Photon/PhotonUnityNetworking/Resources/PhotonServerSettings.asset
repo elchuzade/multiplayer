@@ -43,6 +43,9 @@ MonoBehaviour:
   - ChangeColour
   - HeresWhy
   - RecreateAvatar
+  - PRC_AddCharacter
+  - RPC_AddCharacter
+  - AddAvatar
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
