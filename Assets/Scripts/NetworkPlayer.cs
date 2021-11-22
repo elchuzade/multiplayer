@@ -41,7 +41,7 @@ public class NetworkPlayer : MonoBehaviour
     void Update()
     {
         if (photonView.IsMine)
-            {
+        {
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);
@@ -50,7 +50,6 @@ public class NetworkPlayer : MonoBehaviour
             UpdateHandAnimation(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), rightHandAnimator);
             Debug.Log(headRig.position + " - " + head.position);
         }
-
     }
 
     void MapPosition(Transform target, Transform rigTransform)

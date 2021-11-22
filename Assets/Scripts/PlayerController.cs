@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                             // Hide my emoji
                             if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
                             {
-                                transform.SetParent(gameRoomStatus.faceCamera.transform);
+                                //transform.SetParent(gameRoomStatus.faceCamera.transform);
                                 // Hide renderer
                                 foreach (var item in GetComponentsInChildren<MeshRenderer>())
                                 {
