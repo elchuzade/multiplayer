@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 CreatePlayerAvatar(_player.CustomProperties);
             }
-            //Debug.Log(_player.CustomProperties["viewId"] + " - " + _player.CustomProperties["mood"] + " - " + _player.UserId);
         }
     }
     void CreatePlayerAvatar(Hashtable hash)
@@ -71,17 +70,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
                         player.GetComponent<PlayerController>().mood = (string)hash["mood"];
                         player.GetComponent<PlayerController>().viewId = (int)hash["viewId"];
                         // Remove previous avatars if any exist
-                        for (int i = 0; i < player.transform.Find("Head").Find("Face").childCount; i++)
+                        //for (int i = 0; i < player.transform.Find("Head").Find("Face").childCount; i++)
+                        //{
+                           // Destroy(player.transform.Find("Head").Find("Face").GetChild(i).gameObject);
+                        //}
+                        if (player.transform.Find("Head").Find("Face").childCount == 0)
                         {
-                            Destroy(player.transform.Find("Head").Find("Face").GetChild(i).gameObject);
-                        }
-                        GameObject avatar = Instantiate(ava, player.transform.Find("Head").Find("Face").position, player.transform.Find("Head").Find("Face").rotation);
-                        avatar.transform.SetParent(player.transform.Find("Head").Find("Face"));
+                            GameObject avatar = Instantiate(ava, player.transform.Find("Head").Find("Face").position, player.transform.Find("Head").Find("Face").rotation);
+                            avatar.transform.SetParent(player.transform.Find("Head").Find("Face"));
 
-                        if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
-                        {
-                            gameObject.transform.SetParent(gameRoomStatus.faceCamera.transform);
-                            Debug.Log("this one will be hidden and moved to rig");
+                            if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
+                            {
+                                gameObject.transform.SetParent(gameRoomStatus.faceCamera.transform);
+                                avatar.SetActive(false);
+                            }
                         }
                     }
                 }
