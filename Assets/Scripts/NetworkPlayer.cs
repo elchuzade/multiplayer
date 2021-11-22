@@ -20,7 +20,6 @@ public class NetworkPlayer : MonoBehaviour
     private Transform leftHandRig;
     private Transform rightHandRig;
 
-    // Start is called before the first frame update
     void Start()
     {
         photonView = GetComponent<PhotonView>();
@@ -39,12 +38,10 @@ public class NetworkPlayer : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (photonView.IsMine)
-        {
-            
+            {
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);
