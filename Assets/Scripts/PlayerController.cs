@@ -6,6 +6,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
+    Vector3 shiftZ = new Vector3(0, 0, -0.1f);
     Vector3 Vec;
     //public string userId;
     public int viewId;
@@ -78,12 +79,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
                             // Hide my emoji
                             if (photonView.IsMine && player.GetComponent<PhotonView>().ViewID == viewId)
                             {
-                                //transform.SetParent(gameRoomStatus.faceCamera.transform);
+                                // Add Shift for face and mouth and eyes and head
+                                player.transform.Find("Head").Find("Face").transform.position += shiftZ;
+
                                 // Hide renderer
-                                foreach (var item in GetComponentsInChildren<MeshRenderer>())
-                                {
-                                    item.enabled = false;
-                                }
+                                //foreach (var item in GetComponentsInChildren<MeshRenderer>())
+                                //{
+                                //item.enabled = false;
+                                //}
                             }
                         }
                     }
